@@ -1,0 +1,29 @@
+
+<suite name="QADemo Parallel Suite"
+       parallel="classes"
+       thread-count="3">
+
+    <test name="QADemo Tests">
+        <parameter name="browser" value="chrome"/>
+
+        <classes>
+            <class name="ecom.BITM.QADemoLoginscript.QADemoLoginPositive"/>
+            <class name="ecom.BITM.QADemoLoginscript.QADemoLoginNegative"/>
+
+            <class name="ecom.BITM.QADemoProductscript.QADemoProductpositive"/>
+            <class name="ecom.BITM.QADemoProductscript.QADemoProductNegative"/>
+
+            <class name="ecom.BITM.QADemoCartscript.QADemoCartPositive"/>
+            <class name="ecom.BITM.QADemoCartscript.QADemoCartNegative"/>
+
+            <class name="ecom.BITM.QADemoCheckoutscript.QADemoCheckoutPositive"/>
+            <class name="ecom.BITM.QADemoCheckoutscript.QADemoCheckoutNegative"/>
+
+            <class name="ecom.BITM.QADemoOrderplacedscript.QADemoOrderplacedPositive"/>
+
+            <class name="ecom.BITM.QADemoSignupscript.QADemoSignupPositive"/>
+            <class name="ecom.BITM.QADemoSignupscript.QADemoSignupNegative"/>
+        </classes>
+    </test>
+
+</suite>

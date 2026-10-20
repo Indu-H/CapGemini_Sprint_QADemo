@@ -1,0 +1,17 @@
+
+<suite name="Suite">
+<groups>
+<run>
+<include name="Negative"></include>
+</run>
+</groups>
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="ecom.BITM.QADemoSignupscript.QADemoSignupNegative"/>
+      <class name="ecom.BITM.QADemoProductscript.QADemoProductNegative"/>
+      <class name="ecom.BITM.QADemoLoginscript.QADemoLoginNegative"/>
+      <class name="ecom.BITM.QADemoCartscript.QADemoCartNegative"/>
+      <class name="ecom.BITM.QADemoCheckoutscript.QADemoCheckoutNegative"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

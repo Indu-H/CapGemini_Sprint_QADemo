@@ -1,0 +1,18 @@
+
+<suite name="Suite">
+<groups>
+<run>
+<include name="Integration"></include>
+</run>
+</groups>
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="ecom.BITM.QADemoOrderplacedscript.QADemoOrderplacedPositive"/>
+      <class name="ecom.BITM.QADemoProductscript.QADemoProductpositive"/>
+      <class name="ecom.BITM.QADemoCartscript.QADemoCartPositive"/>
+      <class name="ecom.BITM.QADemoLoginscript.QADemoLoginPositive"/>
+      <class name="ecom.BITM.QADemoSignupscript.QADemoSignupPositive"/>
+      <class name="ecom.BITM.QADemoCheckoutscript.QADemoCheckoutPositive"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

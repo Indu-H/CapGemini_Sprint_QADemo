@@ -1,0 +1,18 @@
+
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="ecom.BITM.QADemoOrderplacedscript.QADemoOrderplacedPositive"/>
+      <class name="ecom.BITM.QADemoProductscript.QADemoProductpositive"/>
+      <class name="ecom.BITM.QADemoCartscript.QADemoCartPositive"/>
+      <class name="ecom.BITM.QADemoSignupscript.QADemoSignupNegative"/>
+      <class name="ecom.BITM.QADemoProductscript.QADemoProductNegative"/>
+      <class name="ecom.BITM.QADemoLoginscript.QADemoLoginNegative"/>
+      <class name="ecom.BITM.QADemoLoginscript.QADemoLoginPositive"/>
+      <class name="ecom.BITM.QADemoSignupscript.QADemoSignupPositive"/>
+      <class name="ecom.BITM.QADemoCartscript.QADemoCartNegative"/>
+      <class name="ecom.BITM.QADemoCheckoutscript.QADemoCheckoutNegative"/>
+      <class name="ecom.BITM.QADemoCheckoutscript.QADemoCheckoutPositive"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
