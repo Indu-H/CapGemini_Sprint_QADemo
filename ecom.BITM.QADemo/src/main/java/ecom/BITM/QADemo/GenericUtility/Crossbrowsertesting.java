@@ -35,6 +35,8 @@ public class Crossbrowsertesting {
 
      else if (browser.equalsIgnoreCase("edge")) {
         EdgeOptions settings = new EdgeOptions();
+        settings.addArguments("--force-device-scale-factor=0.8");
+
         driver = new EdgeDriver(settings);
     }
         else if (browser.equalsIgnoreCase("firefox")) {

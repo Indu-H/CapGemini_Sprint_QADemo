@@ -2,17 +2,16 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]">
   <test thread-count="5" name="Test(failed)">
-    <groups>
-      <run>
-        <include name="Smoke"/>
-      </run>
-    </groups>
     <classes>
       <class name="ecom.BITM.QADemoProductscript.QADemoProductpositive">
         <methods>
           <include name="bC"/>
+          <include name="bS"/>
           <include name="aC"/>
-          <include name="verifyProductCatalog"/>
+          <include name="bT"/>
+          <include name="aS"/>
+          <include name="aT"/>
+          <include name="verifyProductCatalog" invocation-numbers="0"/>
           <include name="aM"/>
           <include name="bM"/>
         </methods>

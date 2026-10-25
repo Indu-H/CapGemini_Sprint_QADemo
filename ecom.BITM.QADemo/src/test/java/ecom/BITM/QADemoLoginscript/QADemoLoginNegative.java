@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 import ecom.BITM.QADemo.GenericUtility.BaseClass;
 import ecom.BITM.QADemo.GenericUtility.DataProviderUtility;
+import ecom.BITM.QADemo.GenericUtility.ScreenshotUtility;
 import ecom.BITM.QADemo.POM.QADemoLoginpage;
 
 public class QADemoLoginNegative extends BaseClass {
@@ -25,6 +26,7 @@ public class QADemoLoginNegative extends BaseClass {
         Reporter.log("Invalid credentials entered", true);
         Thread.sleep(3000);
         Assert.assertFalse(driver.getCurrentUrl().contains("/catalog"),"Negative login failed: Invalid credentials allowed login");
+        ScreenshotUtility.captureScreenshot(driver, "LoginNegative");
         Reporter.log("Negative login test passed: Invalid credentials did not open the catalog",true);
     }
 }

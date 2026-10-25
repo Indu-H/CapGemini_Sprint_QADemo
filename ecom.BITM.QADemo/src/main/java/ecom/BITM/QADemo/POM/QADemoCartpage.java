@@ -46,7 +46,7 @@ public class QADemoCartpage {
     @FindBy(xpath="//span[@class='w-10 text-center font-medium']")
     private WebElement number;
     
-    @FindBy(xpath="//p[@data-testid='cart-item-description-4']")
+    @FindBy(xpath="//p[@data-testid='cart-item-description-10']")
     private WebElement cartItem;
     
     @FindBy(xpath="//button[text()='Clear Cart']")

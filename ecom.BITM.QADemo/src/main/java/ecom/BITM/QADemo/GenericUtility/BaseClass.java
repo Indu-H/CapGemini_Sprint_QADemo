@@ -13,10 +13,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-
-
-
-
 public class BaseClass {
 	public WebDriver driver=null;
 
@@ -77,4 +73,3 @@ public class BaseClass {
 
 
 }
-

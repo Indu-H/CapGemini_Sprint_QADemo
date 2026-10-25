@@ -3,12 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ecom.BITM.QADemoOrderplacedscript.QADemoOrderplacedPositive">
+      <class name="ecom.BITM.QADemoCheckoutscript.QADemoCheckoutPositive">
         <methods>
           <include name="bC"/>
           <include name="bS"/>
-          <include name="verifyContinueShopping" invocation-numbers="0"/>
-          <include name="verifyMyOrders"/>
+          <include name="verifybackwardnavigation" invocation-numbers="0"/>
           <include name="aC"/>
           <include name="bT"/>
           <include name="aS"/>
@@ -16,7 +15,7 @@
           <include name="aM"/>
           <include name="bM"/>
         </methods>
-      </class> <!-- ecom.BITM.QADemoOrderplacedscript.QADemoOrderplacedPositive -->
+      </class> <!-- ecom.BITM.QADemoCheckoutscript.QADemoCheckoutPositive -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [QADemo Cross Browser Suite]">
-  <test thread-count="5" name="edge Tests(failed)">
-    <parameter name="browser" value="edge"/>
+  <test thread-count="5" name="Chrome Tests(failed)">
+    <parameter name="browser" value="chrome"/>
     <classes>
       <class name="ecom.BITM.QADemoOrderplacedscript.QADemoOrderplacedPositive">
         <methods>
           <include name="bC"/>
           <include name="bS"/>
+          <include name="verifyContinueShopping" invocation-numbers="0"/>
           <include name="verifyMyOrders" invocation-numbers="0"/>
           <include name="aC"/>
           <include name="bT"/>
@@ -18,5 +19,5 @@
         </methods>
       </class> <!-- ecom.BITM.QADemoOrderplacedscript.QADemoOrderplacedPositive -->
     </classes>
-  </test> <!-- edge Tests(failed) -->
+  </test> <!-- Chrome Tests(failed) -->
 </suite> <!-- Failed suite [QADemo Cross Browser Suite] -->

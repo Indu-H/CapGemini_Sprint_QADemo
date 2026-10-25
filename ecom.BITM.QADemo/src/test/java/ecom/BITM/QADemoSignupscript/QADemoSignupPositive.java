@@ -1,6 +1,5 @@
 package ecom.BITM.QADemoSignupscript;
 
-
 import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
@@ -9,8 +8,6 @@ import ecom.BITM.QADemo.GenericUtility.BaseClass;
 import ecom.BITM.QADemo.GenericUtility.DataProviderUtility;
 import ecom.BITM.QADemo.GenericUtility.JavaUtility;
 import ecom.BITM.QADemo.POM.QADemoSignuppage;
-
-
 
 public class QADemoSignupPositive extends BaseClass {
 	

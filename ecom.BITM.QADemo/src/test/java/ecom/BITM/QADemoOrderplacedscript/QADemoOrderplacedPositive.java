@@ -1,7 +1,10 @@
+
 package ecom.BITM.QADemoOrderplacedscript;
 
 import java.time.Duration;
 
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -19,7 +22,7 @@ import ecom.BITM.QADemo.POM.QADemoOrderplacedpage;
 public class QADemoOrderplacedPositive extends BaseClass {
 
     @Test(
-        groups = {"Functionality", "Integration","System"},
+        groups = {"Functionality", "Integration", "System"},
         dataProvider = "checkoutdata",
         dataProviderClass = DataProviderUtility.class
     )
@@ -34,7 +37,7 @@ public class QADemoOrderplacedPositive extends BaseClass {
             String cvv,
             String nameOnCard) {
 
-        WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         QADemoLoginpage login = new QADemoLoginpage(driver);
         QADemoProductpage product = new QADemoProductpage(driver);
@@ -43,30 +46,88 @@ public class QADemoOrderplacedPositive extends BaseClass {
         QADemoOrderplacedpage order = new QADemoOrderplacedpage(driver);
 
         login.login(username, password);
+
         wait.until(ExpectedConditions.urlContains("/catalog"));
         Reporter.log("Login successful", true);
-        product.getProduct().click();
-        product.getAddToCart().click();
+
+        WebElement webcam = wait.until(
+            ExpectedConditions.visibilityOf(product.getProduct())
+        );
+
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].scrollIntoView({block:'center'});",
+            webcam
+        );
+
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].click();",
+            webcam
+        );
+
+        wait.until(ExpectedConditions.urlContains("/products/"));
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(product.getAddToCart())
+        ).click();
+
         Reporter.log("Product added to cart", true);
-        product.getCartIcon().click();
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(product.getCartIcon())
+        ).click();
+
         wait.until(ExpectedConditions.urlContains("/cart"));
-        cart.getProceedToCheckoutButton().click();
-        checkout.getCheckoutHeading();
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(
+                cart.getProceedToCheckoutButton()
+            )
+        ).click();
+
+        wait.until(
+            ExpectedConditions.visibilityOf(checkout.getCheckoutHeading())
+        );
+
         checkout.shippingInfo(firstName, lastName, shippingAddress);
         checkout.paymentInfo(cardNumber, expiryDate, cvv, nameOnCard);
-//        checkout.getPlaceOrderButton().click();
         checkout.clickPlaceOrderButton();
-        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOf(order.getOrderConfirmedMessage())).isDisplayed(),"Order confirmation was not displayed");
+
+        Assert.assertTrue(
+            wait.until(
+                ExpectedConditions.visibilityOf(
+                    order.getOrderConfirmedMessage()
+                )
+            ).isDisplayed(),
+            "Order confirmation was not displayed"
+        );
+
         Reporter.log("Order confirmed successfully", true);
-        order.getProfilebutton().click();
-        order.getMyorders().click();
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(order.getProfilebutton())
+        ).click();
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(order.getMyorders())
+        ).click();
+
         wait.until(ExpectedConditions.urlContains("/orders"));
-        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOf(order.getMyorderstext())).isDisplayed(),"My Orders heading is not displayed");
+
+        Assert.assertTrue(
+            wait.until(
+                ExpectedConditions.visibilityOf(order.getMyorderstext())
+            ).isDisplayed(),
+            "My Orders heading is not displayed"
+        );
+
         Reporter.log("My Orders page displayed successfully", true);
-        order.getLogoutButton().click();
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(order.getLogoutButton())
+        ).click();
+
         Reporter.log("Logout successful", true);
     }
-
 
     @Test(
         groups = {"Functionality", "Integration"},
@@ -84,7 +145,7 @@ public class QADemoOrderplacedPositive extends BaseClass {
             String cvv,
             String nameOnCard) {
 
-        WebDriverWait wait =new WebDriverWait(driver, Duration.ofSeconds(15));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 
         QADemoLoginpage login = new QADemoLoginpage(driver);
         QADemoProductpage product = new QADemoProductpage(driver);
@@ -93,33 +154,105 @@ public class QADemoOrderplacedPositive extends BaseClass {
         QADemoOrderplacedpage order = new QADemoOrderplacedpage(driver);
 
         login.login(username, password);
+
         wait.until(ExpectedConditions.urlContains("/catalog"));
         Reporter.log("Login successful", true);
-        product.getProduct().click();
-        product.getAddToCart().click();
-        product.getCartIcon().click();
+
+        WebElement webcam = wait.until(
+            ExpectedConditions.visibilityOf(product.getProduct())
+        );
+
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].scrollIntoView({block:'center'});",
+            webcam
+        );
+
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].click();",
+            webcam
+        );
+
+        wait.until(ExpectedConditions.urlContains("/products/"));
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(product.getAddToCart())
+        ).click();
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(product.getCartIcon())
+        ).click();
+
         wait.until(ExpectedConditions.urlContains("/cart"));
-        cart.getProceedToCheckoutButton().click();
-        checkout.getCheckoutHeading();
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(
+                cart.getProceedToCheckoutButton()
+            )
+        ).click();
+
+        wait.until(
+            ExpectedConditions.visibilityOf(checkout.getCheckoutHeading())
+        );
+
         checkout.shippingInfo(firstName, lastName, shippingAddress);
         checkout.paymentInfo(cardNumber, expiryDate, cvv, nameOnCard);
-//        checkout.getPlaceOrderButton().click();
         checkout.clickPlaceOrderButton();
-        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOf(order.getOrderConfirmedMessage())).isDisplayed(),"Order confirmation was not displayed");
+
+        Assert.assertTrue(
+            wait.until(
+                ExpectedConditions.visibilityOf(
+                    order.getOrderConfirmedMessage()
+                )
+            ).isDisplayed(),
+            "Order confirmation was not displayed"
+        );
+
         Reporter.log("Order confirmed successfully", true);
-        order.getProfilebutton().click();
-        order.getMyorders().click();
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(order.getProfilebutton())
+        ).click();
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(order.getMyorders())
+        ).click();
+
         wait.until(ExpectedConditions.urlContains("/orders"));
-        order.getMyorderstext();
+
+        wait.until(
+            ExpectedConditions.visibilityOf(order.getMyorderstext())
+        );
+
         Reporter.log("My Orders page displayed", true);
-        order.getOrderDetailsLink().click();
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(order.getOrderDetailsLink())
+        ).click();
+
         Reporter.log("Order details page opened", true);
-        //order.getOrderspagecontinueshopping().click();
+
         order.clickContinueShopping();
+
         wait.until(ExpectedConditions.urlContains("/catalog"));
-        Assert.assertTrue(wait.until(ExpectedConditions.visibilityOf(product.getProductCatalogHeading())).isDisplayed(),"Product Catalog heading is not displayed");
-        Reporter.log("Continue Shopping opened Product Catalog successfully",true);
-        order.getLogoutButton().click();
+
+        Assert.assertTrue(
+            wait.until(
+                ExpectedConditions.visibilityOf(
+                    product.getProductCatalogHeading()
+                )
+            ).isDisplayed(),
+            "Product Catalog heading is not displayed"
+        );
+
+        Reporter.log(
+            "Continue Shopping opened Product Catalog successfully",
+            true
+        );
+
+        wait.until(
+            ExpectedConditions.elementToBeClickable(order.getLogoutButton())
+        ).click();
+
         Reporter.log("Logout successful", true);
     }
 }
